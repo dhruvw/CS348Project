@@ -1,0 +1,21 @@
+<!-- meetings/templates/meetings/meeting_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Meetings</title>
+</head>
+<body>
+    <h1>Meeting List</h1>
+    <a href="{% url 'meeting_create' %}">Create New Meeting</a>
+    <ul>
+        {% for meeting in meetings %}
+            <li>
+                <strong>{{ meeting.title }}</strong> - {{ meeting.date }}<br>
+                <a href="{% url 'meeting_edit' meeting.pk %}">Edit</a> |
+                <a href="{% url 'meeting_delete' meeting.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<!-- meetings/templates/meetings/meeting_form.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ meeting.title|default:"New Meeting" }}</title>
+</head>
+<body>
+    <h1>{{ meeting.title|default:"New Meeting" }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save</button>
+        <a href="{% url 'meeting_list' %}">Cancel</a>
+    </form>
+</body>
+</html>

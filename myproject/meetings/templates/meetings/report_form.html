@@ -1,0 +1,104 @@
+{% extends 'meetings/base.html' %}
+
+{% block title %}Generate Report{% endblock %}
+
+{% block content %}
+<div class="report-container">
+    <h1>Generate Meetings Report</h1>
+    <form method="post" class="report-form">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>Date Range:</label>
+            <div class="date-range">
+                <div>
+                    {{ form.start_date.label_tag }}
+                    {{ form.start_date }}
+                </div>
+                <div>
+                    {{ form.end_date.label_tag }}
+                    {{ form.end_date }}
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            {{ form.mandatory_only.label_tag }}
+            {{ form.mandatory_only }}
+        </div>
+
+        <div class="form-group">
+            {{ form.organizer.label_tag }}
+            {{ form.organizer }}
+        </div>
+
+        <div class="form-group">
+            {{ form.industry_type.label_tag }}
+            {{ form.industry_type }}
+        </div>
+
+        <div class="button-group">
+            <button type="submit" name="action" value="view" class="button">View Report</button>
+            <button type="submit" name="action" value="download" class="button">Download Report</button>
+        </div>
+    </form>
+</div>
+
+<style>
+    .report-container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    .report-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .date-range {
+        display: flex;
+        gap: 20px;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-group input[type="date"],
+    .form-group select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+
+    .button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .button:hover {
+        background-color: #45a049;
+    }
+
+    .button-group {
+        display: flex;
+        gap: 10px;
+    }
+</style>
+{% endblock %} 

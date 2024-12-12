@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Meeting Management{% endblock %}</title>
+    <style>
+        /* Navigation styles */
+        .nav-bar {
+            background-color: #333;
+            padding: 1em;
+            margin-bottom: 20px;
+        }
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-right: 10px;
+        }
+        .nav-bar a:hover {
+            background-color: #555;
+        }
+        
+        /* Existing styles */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .actions {
+            display: flex;
+            gap: 10px;
+        }
+        .button {
+            padding: 5px 10px;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 3px;
+        }
+        .delete-button {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav-bar">
+        <a href="{% url 'meeting_list' %}">Meetings</a>
+        <a href="{% url 'organizer_list' %}">Organizers</a>
+        <a href="{% url 'generate_report' %}">Generate Report</a>
+    </div>
+    
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html> 
